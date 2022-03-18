@@ -1,0 +1,39 @@
+BRUTEFORCE ATTACK
+
+Niech k oznacza liczbę bitów klucza, T będzie tekstem jawnym a C szyfrogramem. Wiemy, iż stosując metode bruteforce w najgorszym przypadków należy sprawdzić aż 2^k kluczy. Biorąc pod uwagę, iż jesteśmy w stanie sprawdzić 10^6 kluczy w trakcie trwania jednej sekundy otrzymujemy stosunek 2^k/10^6.
+k=40 ; 2^40/10^6 = 1.0995 * 10^6 / (60*60) = 305,4199 [h] 
+k=56 ; 2^56/10^6 = 7.2057 * 10^10 / (60*60*24*365) = 2284,9313 [year]
+k=90 ; 2^90/10^6 = 1.2379 * 10^21 / (60*60*24*365*13,8*10^9) = 2844,5523 [universe]
+k=128 ; 2^128/10^6 =3.4028 × 10^32 / (60*60*24*365*13,8*10^9) = 7,8190*10^14 [universe]
+k=256 ; 2^256/10^6 =1.1579 × 10^71 / (60*60*24*365*13,8*10^9) = 2,7*10^53 [universe]
+
+Zauważamy, że taki atak jest praktycznie niemożliwy do wykonania z zadaną szybkością sprawdzania kluczy.
+
+
+AES 
+
+Po użyciu poniższej komendy:
+openssl speed aes
+Otrzymałem następującą informację:
+Doing aes-128 cbc for 3s on 16 size blocks: 37805810 aes-128 cbc's in 2.98s
+
+Zaokrąglmy 2.98s do 3s. Wtedy na jedną sekundę przypada 37805810/3=12601937 iteracji.
+
+Algorytm wykonywany jest na bloku o wielkości 16 bloków, każdy składający się z 16 bajtów.
+Z tego wynika, że pracowano na 16*16*8 = 2048 bitach
+
+
+Pobór energii procesora i5 7600- 65 W/h = 0,01805 W/s
+
+0,01805 * 1000 / 3600 = 0,0050138 kWh - energia pobierana przez procesor w czasie jednej sekundy
+
+1kWh odpowiada 0,73zł
+
+0,0050138*3*0,73=0,01098 zł - finalny koszt testowanej operacji
+
+
+
+
+
+
+
