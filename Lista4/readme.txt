@@ -1,0 +1,1 @@
+Do wykonania szyfrowania użyto AES256, czyli użyto jako "encryption mode" Block Mode.
